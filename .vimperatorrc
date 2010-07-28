@@ -1,0 +1,12 @@
+" Author:		Keiya Chinen, keiyac
+" Last Change:	2010/05/06
+set go=brmB
+
+set wildoptions=auto
+
+set complete=bsl
+
+map j 5<C-e>
+map k 5<C-y>
+map h gT
+map l gt
