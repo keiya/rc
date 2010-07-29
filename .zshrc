@@ -46,6 +46,7 @@ setopt auto_pushd
 # command correct edition before each completion attempt
 #
 setopt correct
+setopt correctall
 
 # compacked complete list display
 #
@@ -91,7 +92,7 @@ setopt share_history        # share command history data
 #
 fpath=(~/.zsh/functions/Completion ${fpath})
 autoload -U compinit
-compinit
+compinit -u
 
 
 ## zsh editor
@@ -125,12 +126,17 @@ esac
 
 alias la="ls -la"
 alias lf="ls -F"
-alias ll="ls -l"
+alias ll="ls -lh"
 
 alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
+alias cp="cp -i"
+alias rm="rm -i"
+alias mv="mv -i"
+
+alias grep="grep --color=auto"
 
 # for screen
 alias screen="TERM=screen screen -U" 
@@ -191,11 +197,16 @@ kterm*|xterm*)
         echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
     }
     export LSCOLORS=exfxcxdxbxegedabagacad
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+    export LS_COLORS='di=33:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
     zstyle ':completion:*' list-colors \
-        'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+        'di=33' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
     ;;
 esac
 
+
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+			     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case'
 
 

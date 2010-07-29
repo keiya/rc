@@ -1,5 +1,5 @@
-# Author:		Keiya Chinen, keiyac
-# Last Change:	2010/05/14
+# Author:      Keiya Chinen, keiyac
+# Last Change: 2010/05/14
 escape ^x^x
 autodetach on
 defbce on
@@ -11,5 +11,7 @@ hardstatus alwayslastline
 hardstatus string "%{.bW}%{.rW}%n: %t %{-} %=%{..G}%H %{..Y}LoadAvg: %l %0c "
 caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w"
 logfile ~/.screen/%y-%m-%d_%0c:%s.%n.log
-deflog on
 
+defutf8 on
+defkanji utf8
+defencoding utf8
