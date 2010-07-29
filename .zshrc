@@ -30,7 +30,7 @@ case ${UID} in
     ;;
 *)
     PROMPT='%{[33m%}[%~]%(!.#.$)%{[m%} '
-    RPROMPT="%{[32m%}%n@%m%{[m%} %{[36m%}%D{%Y/%m/%d %H:%M:%S}%{[m%}"
+    RPROMPT="%{[33m%}%n@%m%{[m%} %{[33m%}%D{%H:%M:%S}%{[m%}"
     SPROMPT="%r is correct? [n,y,a,e]"
     ;;
 esac
@@ -94,17 +94,10 @@ fpath=(~/.zsh/functions/Completion ${fpath})
 autoload -U compinit
 compinit -u
 
-
-## zsh editor
-#
-autoload zed
-
-
 ## Prediction configuration
 #
 #autoload predict-on
 #predict-off
-
 
 ## Alias configuration
 #
@@ -167,7 +160,13 @@ freebsd*)
     ;;
 esac
 
-export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
+#export LSCOLORS=gxFxcxxxbxegedxexxacxe
+ export LSCOLORS=gxFxcxdxbxegedabagacad
+
+export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
+#export LSCOLORS=xxxxxxxxxxxxxxxxxxxxxx
+zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 			     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
