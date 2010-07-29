@@ -1,5 +1,5 @@
 # Author:      Keiya Chinen, keiyac
-# Last Change: 2010/05/14
+# Last Change: 2010/07/29
 escape ^x^x
 autodetach on
 defbce on
