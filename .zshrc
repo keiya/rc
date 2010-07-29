@@ -102,8 +102,8 @@ autoload zed
 
 ## Prediction configuration
 #
-autoload predict-on
-predict-on
+#autoload predict-on
+#predict-off
 
 
 ## Alias configuration
