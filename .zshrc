@@ -167,8 +167,6 @@ freebsd*)
     ;;
 esac
 
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-export MANPATH=$MANPATH:/opt/local/share/man
 export LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
