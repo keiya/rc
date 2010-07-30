@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author:		Keiya Chinen, keiyac
-# lastupdate	2010/07/29
+# lastupdate	2010/07/30
 
 # users generic .zshrc file for zsh(1)
 
@@ -110,7 +110,7 @@ alias j="jobs -l"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
-    alias ls="ls -G -w"
+    alias ls="ls -G -w -F"
     ;;
 linux*)
     alias ls="ls --color=auto"
@@ -118,7 +118,6 @@ linux*)
 esac
 
 alias la="ls -la"
-alias lf="ls -F"
 alias ll="ls -lh"
 
 alias du="du -h"
