@@ -37,7 +37,7 @@ set noinsertmode
 set visualbell
 set backspace=indent,start,eol
 set fileformats=unix,dos,mac
-set helplang=en,ja
+set helplang=ja,en
 set nrformats-=octal
 set nrformats+=alpha
 set runtimepath+=${HOME}/.vim/chalice
