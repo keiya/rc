@@ -447,6 +447,12 @@ let ruby_space_errors = 1
 let g:is_bash = 1 "bashしか使わへん
 let sh_minlines = 500
 " }}}2
+" perl {{{2
+autocmd BufNewFile *.pl 0r $HOME/repos/rc/template.pl
+" }}}2
+" cpp {{{2
+autocmd BufNewFile *.cpp 0r $HOME/repos/rc/template.cpp
+" }}}2
 " {{{2
 " }}}2
 " }}}1
