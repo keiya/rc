@@ -137,7 +137,7 @@ if has( "autocmd" )
 		let dir = strftime("~/.vim/backup/%Y/%m/%d", localtime())
 		if !isdirectory(dir)
 			let retval = system("mkdir -p ".dir)
-            let retval = system("chown $UID:$GROUPS ".dir)
+			let retval = system("chown $UID:$GROUPS ".dir)
 		endif
 		exe "set backupdir=".dir
 		unlet dir
