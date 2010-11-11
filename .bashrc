@@ -94,6 +94,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export LS_COLORS="di=01;33;40:ln=01;36;40"
+export LS_COLORS="di=01;36;40:ln=01;35;40:so=01;32;40:pi=01;33;40:ex=01;31;40:bd=01;46;34:cd=01;43;34:su=01;41;30:tw=01;42;30:ow=01;43;30"
 
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case'
