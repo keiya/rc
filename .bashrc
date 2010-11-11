@@ -1,5 +1,5 @@
 # Author:		Keiya Chinen, keiyac
-# lastupdate	2010/07/29
+# lastupdate	2010/11/11
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
