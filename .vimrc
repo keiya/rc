@@ -317,44 +317,6 @@ if !exists(":DiffOrig")
 endif
 " }}}1
 
-" plugin設定 {{{1
-" autodate {{{2
-let autodate_format="%Y/%m/%d %H:%M:%S"
-" }}}2
-" Align {{{2
-let g:Align_xstrlen = 3
-" }}}2
-" AutoComplPop {{{2
-let g:AutoComplPop_NotEnableAtStartup = 1
-" let g:AutoComplPop_BehaviorKeywordLength = 2
-" let g:AutoComplPop_CompleteOption=".,w,b,u,U,t,i,d,k"
-" }}}2
-" ShowMarks {{{2
-let g:showmarks_textlower="\t "
-let g:showmarks_textupper="\t "
-let g:showmarks_textother="\t "
-let g:showmarks_hlline_upper=1
-highlight ShowMarksHLl ctermfg=white
-highlight ShowMarksHLu ctermfg=white
-highlight ShowMarksHLo ctermfg=yellow
-highlight ShowMarksHLm ctermfg=red
-" }}}2
-" Chalice {{{2
-let g:chalice_startupflags="aa=no,bookmark"
-let g:chalice_previewflags="autoclose"
-let g:chalice_titlestring=""
-" }}}2
-" }}}2
-" }}}2
-" prtdialog {{{2
-let g:prd_prtDeviceList="standard,192.168.10.249,toccata"
-let g:prd_prtDeviceIdx=1
-nmap <Leader>prt <Plug>PRD_PrinterDialogNormal
-vmap <Leader>prt <Plug>PRD_PrinterDialogVisual
-" }}}2
-" }}}1
-let g:load_doxygen_syntax=1
-
 " ファイルタイプ毎の追加オプション {{{1
 " Haskell {{{2
 let hs_highlight_boolean = 1
