@@ -40,8 +40,6 @@ set fileformats=unix,dos,mac
 set helplang=ja,en
 set nrformats-=octal
 set nrformats+=alpha
-set runtimepath+=${HOME}/.vim/chalice
-set runtimepath+=${HOME}/.vim/hatena
 if exists('&ambiwidth')
 	set ambiwidth=double
 endif
@@ -71,7 +69,7 @@ set nowrap
 " タブ/バッファ {{{1
 set showtabline=2
 set hidden
-set nosplitbelow
+set splitbelow
 set splitright
 " }}}1
 
@@ -242,7 +240,7 @@ highlight PmenuSel ctermbg=1
 highlight PMenuSbar ctermbg=4
 highlight Folded ctermbg=darkgray ctermfg=white
 highlight FoldColumn ctermbg=0
-highlight StatusLineNC ctermfg=black ctermbg=black
+highlight StatusLineNC ctermfg=darkgray ctermbg=gray
 highlight NonText ctermfg=black
 highlight SpecialKey ctermfg=darkgray
 highlight CursorLine NONE cterm=underline
@@ -367,12 +365,6 @@ endif
 " autodate {{{2
 let autodate_format="%Y/%m/%d %H:%M:%S"
 " }}}2
-" haskellmode {{{2
-autocmd vimrc Bufenter *.hs compiler ghc
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-let b:ghc_staticoptions = "-Wall"
-" }}}2
 " Align {{{2
 let g:Align_xstrlen = 3
 " }}}2
@@ -396,14 +388,7 @@ let g:chalice_startupflags="aa=no,bookmark"
 let g:chalice_previewflags="autoclose"
 let g:chalice_titlestring=""
 " }}}2
-" vimwiki {{{2
-let g:vimwiki_list=[{'path_html': '~/.vim/vimwiki/html/', 'html_footer': '', 'maxhi': 1, 'index': 'index', 'path': '~/.vim/vimwiki/source/', 'gohome': 'split', 'ext': '.wiki', 'folding': 1, 'html_header': '', 'syntax': 'default', 'css_name': 'style.css'}]
 " }}}2
-" twitvim {{{2
-let twitvim_login=""
-" }}}2
-" hatena {{{2
-let g:hatena_user="goth_wrist_cut"
 " }}}2
 " prtdialog {{{2
 let g:prd_prtDeviceList="standard,192.168.10.249,toccata"
