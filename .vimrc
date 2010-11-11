@@ -137,7 +137,7 @@ if has( "autocmd" )
 		let dir = strftime("~/.vim/backup/%Y/%m/%d", localtime())
 		if !isdirectory(dir)
 			let retval = system("mkdir -p ".dir)
-			let retval = system("chown goth:staff ".dir)
+            let retval = system("chown $UID:$GROUPS ".dir)
 		endif
 		exe "set backupdir=".dir
 		unlet dir
@@ -146,50 +146,6 @@ if has( "autocmd" )
 		unlet ext
 	endfunction
 endif
-" }}}1
-
-" バイナリエディタ {{{1
-augroup Binary
-	autocmd!
-	autocmd BufReadPre  *.bin let &binary = 1
-	autocmd BufReadPost * call BinReadPost()
-	autocmd StdinReadPost * call BinReadPost()
-	autocmd BufWritePre * call BinWritePre()
-	autocmd BufWritePost * call BinWritePost()
-	"autocmd CursorHold * call BinReHex()
-	" 関数群 {{{2
-	function! BinReadPost()
-		if &binary
-			silent %!xxd
-			set ft=gothicHex
-		endif
-	endfunction
-	function! BinWritePre()
-		if &binary
-			let s:saved_pos = getpos( '.' )
-			silent %!hex2bin
-		endif
-	endfunction
-	function! BinWritePost()
-		if &binary
-			let s:modified = &modified
-			silent %!xxd
-			call setpos( '.', s:saved_pos )
-			let &modified = s:modified
-		endif
-	endfunction
-	" function! BinReHex()
-	" 	if &binary
-	" 		let s:saved_pos = getpos( '.' )
-	" 		let s:modified = &modified
-	" 		silent %!hex2bin
-	" 		silent %!xxd
-	" 		call setpos( '.', s:saved_pos )
-	" 		let &modified = s:modified
-	" 	endif
-	" endfunction
-	" }}}2
-augroup END
 " }}}1
 
 " mapping {{{1
