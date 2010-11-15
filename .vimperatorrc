@@ -12,3 +12,4 @@ map h gT
 map l gt
 
 autocmd LocationChange .* :js modes.passAllKeys = false
+let g:hintsio="io"
