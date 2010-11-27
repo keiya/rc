@@ -1,0 +1,5 @@
+(show-paren-mode t)
+(setq show-paren-style 'mixed)
+(set-face-background 'show-paren-match-face "gray10")
+(set-face-foreground 'show-paren-match-face "SkyBlue")
+(setq scheme-program-name "gosh -i")
