@@ -1,6 +1,7 @@
 " Author:		Keiya Chinen, keiyac
 " Last Change:	2010/11/27
-set go=brm
+"set go=brm
+set gui=addons,bookmarks,menu,nonavigation,tabs
 
 set wildoptions=auto
 
