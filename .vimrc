@@ -100,6 +100,7 @@ endif
 
 " インデント {{{1
 set autoindent
+set shiftwidth=4
 set cinoptions=:0g0
 set copyindent
 set smartindent
