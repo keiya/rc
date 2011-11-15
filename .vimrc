@@ -13,18 +13,7 @@ noremap k gk
 noremap gj j
 noremap gk k
 
-" カーソルキーを殺す {{{1
-"map <Left> <Esc>
-"map <Down> <Esc>
-"map <Up> <Esc>
-"map <Right> <Esc>
-"imap <Left> <Esc>
-"imap <Down> <Esc>
-"imap <Up> <Esc>
-"imap <Right> <Esc>
-" }}}1
-
-" set {{{1
+" set
 set ttimeoutlen=10
 set tabstop=4
 set tabpagemax=100
@@ -43,9 +32,8 @@ set nrformats+=alpha
 if exists('&ambiwidth')
 	set ambiwidth=double
 endif
-" }}}1
 
-" 外観 {{{1
+" 外観
 set cmdheight=1
 set cursorline
 set eadirection=both
@@ -64,16 +52,14 @@ set statusline=%n:%<\ %f%a\ %m%r%h%w%y[%{&fenc!=''?&fenc:&enc}][%{&ff}]%=pos:%l,
 set notitle
 set nowrap
 " set display=uhex
-" }}}1
 
-" タブ/バッファ {{{1
+" タブ/バッファ
 set showtabline=2
 set hidden
 set splitbelow
 set splitright
-" }}}1
 
-" 検索 {{{1
+" 検索
 set hlsearch
 set ignorecase
 set incsearch
@@ -83,37 +69,33 @@ set report=0
 set showmatch
 set smartcase
 set wrapscan
-" }}}1
 
-" 補完 {{{1
+" 補完
 "set complete=.,w,b,u,U,t,i,d,k
 set completeopt=menu,longest,preview
-set tags=~/.vim/systags,./tags,../tags,./*/tags,~/.tags/*/tags
+"set tags=~/.vim/systags,./tags,../tags,./*/tags,~/.tags/*/tags
 set wildmenu
 set wildmode=list:longest,full
-if exists( "+omnifunc" )
-	if &omnifunc == ""
-		setlocal omnifunc=syntaxcomplete#Complete
-	endif
-endif
-" }}}1
+"if exists( "+omnifunc" )
+"	if &omnifunc == ""
+"		setlocal omnifunc=syntaxcomplete#Complete
+"	endif
+"endif
 
-" インデント {{{1
+" インデント
 set autoindent
 set shiftwidth=4
 set cinoptions=:0g0
 set copyindent
 set smartindent
 set formatoptions+=nM
-" }}}1
 
-" ファイルブラウズ {{{1
+" ファイルブラウズ
 set browsedir=current
 let g:netrw_liststyle=1
 let g:netrw_http_cmd="wget -q -O"
-" }}}1
 
-" 自動文字コード判別 {{{1
+" 自動文字コード判別
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=iso-2022-jp,utf-8,euc-jp,sjis,cp932
@@ -126,9 +108,8 @@ if has('autocmd')
 		endif
 	endfunction
 endif
-" }}}1
 
-" 自動バックアップ {{{1
+" 自動バックアップ
 set backup
 set backupdir=~/.backup/vim
 set viewdir=~/.backup/view
@@ -147,9 +128,8 @@ if has( "autocmd" )
 		unlet ext
 	endfunction
 endif
-" }}}1
 
-" mapping {{{1
+" mapping
 nmap n nzz
 nmap N Nzz
 nmap * *zz
@@ -175,22 +155,16 @@ nmap <C-L> :tabnext<CR>
 nmap gc `[v`]
 vmap gc :<C-u>normal gc<Enter>
 omap gc :<C-u>normal gc<Enter>
-" }}}1
 
-" Fold関係 {{{1
-set foldlevel=15
-set foldmethod=marker
-set foldtext=MyFoldText()
+
+" Fold関係
+set foldlevel=1
+set foldnestmax=2
+set foldmethod=syntax
 set foldcolumn=3
-function! MyFoldText()
-	let indent = substitute( v:folddashes, '-', '>', 'g' )
-	let indent = substitute( indent . '        ', '\(.\{8\}\).*', '\1', '' )
-	let line = substitute( getline( v:foldstart ), '{{{\d\=', '', 'g' ) "}}}
-	return indent.' '.line
-endfunction
-" }}}1
 
-" Color関係 {{{1
+
+" Color関係
 highlight Comment ctermfg=5
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
@@ -204,12 +178,7 @@ highlight CursorLine NONE cterm=underline
 highlight ZenkakuSpace cterm=underline ctermbg=white ctermfg=blue
 autocmd vimrc VimEnter,WinEnter * match ZenkakuSpace /　/
 
-if has( "autocmd" )
-	autocmd vimrc filetype actionscript set dictionary+=~/.vim/dict/actionscript3.dict
-	autocmd vimrc filetype mplayerconf set dictionary+=~/.vim/dict/mplayerconf
-endif
-
-" xterm-256color関係 {{{2
+" xterm-256color関係
 let s:colourcube_values = [ 0x00, 0x5F, 0x87, 0xAF, 0xD7, 0xFF ]
 let s:base16_values = 	[ [ 0x00, 0x00, 0x00 ]
 \			, [ 0xCD, 0x00, 0x00 ]
@@ -296,19 +265,15 @@ function! RGB2ESC( rgb )
 	endfor
 	return index
 endfunction
-" }}}2
 
-" }}}1
-
-" errorformat関係 {{{1
+" errorformat関係
 if has( "autocmd" )
 	autocmd vimrc filetype prolog set errorformat^=ERROR:\ %f:%l:%c:\ %m
 endif
 set errorformat+=%D%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ に入ります
 set errorformat+=%X%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ から出ます
-" }}}1
 
-" いろいろ {{{1
+" いろいろ
 if has( "autocmd" )
 	autocmd vimrc BufReadPost * if 0 < line("'\"") && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
@@ -316,50 +281,39 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-" }}}1
 
 " ファイルタイプ毎の追加オプション {{{1
-" Haskell {{{2
+" Haskell
 let hs_highlight_boolean = 1
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_highlight_debug = 1
 let hs_allow_hash_operator = 1
 let lhs_markup = "tex"
-" }}}2
-" Lisp {{{2
+" Lisp
 let g:lisp_instring = 1
 let g:lisp_rainbow = 1
-" }}}2
-" SQL {{{2
+" SQL
 let msql_sql_query = 1
-" }}}2
-" Python {{{2
+" Python
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
 let python_highlight_space_errors = 1
 let python_highlight_all = 1
-" }}}2
-" Readline with Bash {{{2
+" Readline with Bash
 let readline_has_bash = 1
-" }}}2
-" Ruby {{{2
+" Ruby
 let ruby_minlines = 500
 let ruby_space_errors = 1
-" }}}2
-" sh {{{2
+" sh
 let g:is_bash = 1 "bashしか使わへん
 let sh_minlines = 500
-" }}}2
-" perl {{{2
-autocmd BufNewFile *.pl 0r $HOME/repos/rc/template.pl
-" }}}2
-" cpp {{{2
-autocmd BufNewFile *.cpp 0r $HOME/repos/rc/template.cpp
-" }}}2
-" {{{2
-" }}}2
-" }}}1
-" set t_ti=
-" set t_te=
-" vim: foldmethod=marker:foldlevel=1
+" perl
+"autocmd BufNewFile *.pl 0r $HOME/repos/rc/template.pl
+let perl_fold = 1
+" cpp
+"autocmd BufNewFile *.cpp 0r $HOME/repos/rc/template.cpp
+" php
+let php_folding = 1
+let php_sql_query=1
+let php_htmlInStrings=1

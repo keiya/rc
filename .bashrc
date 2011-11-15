@@ -68,10 +68,10 @@ esac
 #fi
 
 # enable color support of ls and also add handy aliases
-alias ls='ls -G'
+alias ls='ls -F -G'
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    alias ls='ls -F --color=auto'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 

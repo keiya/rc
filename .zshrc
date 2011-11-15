@@ -113,7 +113,7 @@ freebsd*|darwin*)
     alias ls="ls -G -w -F"
     ;;
 linux*)
-    alias ls="ls --color=auto"
+    alias ls="ls -F --color=auto"
     ;;
 esac
 
@@ -131,33 +131,7 @@ alias mv="mv -i"
 alias grep="grep --color=auto"
 
 # for screen
-alias screen="TERM=screen screen -U" 
-
-case "${OSTYPE}" in
-darwin*)
-    alias updateports="sudo port selfupdate; sudo port outdated"
-    alias portupgrade="sudo port upgrade installed"
-    ;;
-freebsd*)
-    case ${UID} in
-    0)
-        updateports() 
-        {
-            if [ -f /usr/ports/.portsnap.INDEX ]
-            then
-                portsnap fetch update
-            else
-                portsnap fetch extract update
-            fi
-            (cd /usr/ports/; make index)
-
-            portversion -v -l \<
-        }
-        alias appsupgrade='pkgdb -F && BATCH=YES NO_CHECKSUM=YES portupgrade -a'
-        ;;
-    esac
-    ;;
-esac
+alias screen="TERM=screen screen -U"
 
 #export LSCOLORS=gxFxcxxxbxegedxexxacxe
  export LSCOLORS=gxFxcxdxbxegedabagacad
