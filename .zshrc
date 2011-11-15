@@ -113,7 +113,7 @@ freebsd*|darwin*)
     alias ls="ls -G -w -F"
     ;;
 linux*)
-    alias ls="ls --color=auto"
+    alias ls="ls -F --color=auto"
     ;;
 esac
 
