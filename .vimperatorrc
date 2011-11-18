@@ -1,6 +1,7 @@
 " Author:		Keiya Chinen, keiyac
 " Last Change:	2010/11/27
-set go=brm
+"set go=brm
+set gui=addons,bookmarks,menu,nonavigation,tabs
 
 set wildoptions=auto
 
@@ -14,3 +15,4 @@ map l gt
 autocmd LocationChange .* :js modes.passAllKeys = false
 let g:hintsio="io"
 noremap yy :javascript util.copyToClipboard(buffer.URL);<CR>
+set hintchars=asdfghjkl
