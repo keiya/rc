@@ -1,5 +1,5 @@
 " Author:		Keiya Chinen, keiyac
-" Last Change:	2010/07/29
+
 scriptencoding utf-8
 syntax on
 filetype plugin on
@@ -92,8 +92,8 @@ set formatoptions+=nM
 
 " ファイルブラウズ
 set browsedir=current
-let g:netrw_liststyle=1
-let g:netrw_http_cmd="wget -q -O"
+"let g:netrw_liststyle=1
+"let g:netrw_http_cmd="wget -q -O"
 
 " 自動文字コード判別
 set encoding=utf-8
@@ -119,7 +119,7 @@ if has( "autocmd" )
 		let dir = strftime("~/.vim/backup/%Y/%m/%d", localtime())
 		if !isdirectory(dir)
 			let retval = system("mkdir -p ".dir)
-			let retval = system("chown $UID:$GROUPS ".dir)
+			let retval = system("chown $USER".dir)
 		endif
 		exe "set backupdir=".dir
 		unlet dir
@@ -141,20 +141,20 @@ nmap k gk
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-map \mm :set aw \| make \| set noaw<CR>
-map \mn :set aw \| make clean \| set noaw<CR>
+"map \mm :set aw \| make \| set noaw<CR>
+"map \mn :set aw \| make clean \| set noaw<CR>
 
-map [H <Home>
-map! [H <Home>
-map [F <End>
-map! [F <End>
+"map [H <Home>
+"map! [H <Home>
+"map [F <End>
+"map! [F <End>
 
 nmap <C-H> :tabprev<CR>
 nmap <C-L> :tabnext<CR>
 
-nmap gc `[v`]
-vmap gc :<C-u>normal gc<Enter>
-omap gc :<C-u>normal gc<Enter>
+"nmap gc `[v`]
+"vmap gc :<C-u>normal gc<Enter>
+"omap gc :<C-u>normal gc<Enter>
 
 
 " Fold関係
@@ -196,75 +196,6 @@ let s:base16_values = 	[ [ 0x00, 0x00, 0x00 ]
 \			, [ 0xFF, 0x00, 0xFF ]
 \			, [ 0x00, 0xFF, 0xFF ]
 \			, [ 0xFF, 0xFF, 0xFF ] ]
-function! s:abs( n )
-	if a:n > 0
-		return a:n
-	else
-		return (0 - a:n)
-	end
-endfunction
-
-function! ESC2RGB( esc )
-	let esc = a:esc
-	if esc < 16
-		return s:base16_values[a:esc]
-	endif
-	let esc = esc - 16
-	if esc < 216
-		let r = s:colourcube_values[(esc / 36) % 6]
-		let g = s:colourcube_values[(esc / 6) % 6]
-		let b = s:colourcube_values[esc % 6]
-		return [r,g,b]
-	endif
-	let esc = esc - 216
-	if esc < 24
-		let y = 8 + esc * 10
-		return [y,y,y]
-	endif
-	let esc = esc - 24
-	echom "unknown esc code: " (esc+256)
-	return
-endfunction
-
-let s:esc2rgbDict = {}
-for i in range( 0, &t_Co - 1 )
-	let s:esc2rgbDict[i] = ESC2RGB(i)
-endfor
-
-function! RGB2ESC( rgb )
-	let rgb = a:rgb
-	if rgb[0] ==? "#"
-		let rgb = rgb[1:]
-	endif
-	if strlen( rgb ) == 6
-		let r = str2nr(rgb[0] . rgb[1], 16 )
-		let g = str2nr(rgb[2] . rgb[3], 16 )
-		let b = str2nr(rgb[4] . rgb[5], 16 )
-	elseif strlen( rgb ) == 3
-		let r = str2nr(rgb[0] . rgb[0], 16 )
-		let g = str2nr(rgb[1] . rgb[1], 16 )
-		let b = str2nr(rgb[2] . rgb[2], 16 )
-	else
-		echom "format error for: " . a:rgb
-		return
-	endif
-
-	let mindiff = 20 " 妥協
-	let diff = 0xff * 3
-	let index = 0
-	for i in range( 0, &t_Co - 1 )
-		let d	= s:abs( s:esc2rgbDict[i][0] - r )
-\			+ s:abs( s:esc2rgbDict[i][1] - g )
-\			+ s:abs( s:esc2rgbDict[i][2] - b )
-		if d < mindiff
-			return i
-		elseif d < diff
-			let diff = d
-			let index = i
-		endif
-	endfor
-	return index
-endfunction
 
 " errorformat関係
 if has( "autocmd" )
@@ -274,13 +205,13 @@ set errorformat+=%D%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ に入ります
 set errorformat+=%X%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ から出ます
 
 " いろいろ
-if has( "autocmd" )
-	autocmd vimrc BufReadPost * if 0 < line("'\"") && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+"if has( "autocmd" )
+"	autocmd vimrc BufReadPost * if 0 < line("'\"") && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+"endif
+"if !exists(":DiffOrig")
+"  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+"		  \ | wincmd p | diffthis
+"endif
 
 " ファイルタイプ毎の追加オプション {{{1
 " Haskell
@@ -306,15 +237,13 @@ let readline_has_bash = 1
 let ruby_minlines = 500
 let ruby_space_errors = 1
 " sh
-let g:is_bash = 1 "bashしか使わへん
+let g:is_bash = 1
 let sh_minlines = 500
 " perl
 "autocmd BufNewFile *.pl 0r $HOME/repos/rc/template.pl
-let perl_fold = 1
 " cpp
 "autocmd BufNewFile *.cpp 0r $HOME/repos/rc/template.cpp
 " php
-let php_folding = 1
 let php_sql_query=1
 let php_htmlInStrings=1
 
