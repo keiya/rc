@@ -19,8 +19,8 @@ set cdpath = (~/)
 set LANG = en_US.UTF-8
 
 alias where "command -v"
-alias screen "TERM=screen screen -U"
-alias tmux "TERM=tmux -u"
+alias screen "screen screen -U"
+alias tmux "tmux -u"
 alias grep "grep --color=auto"
 alias ls "ls-F"
 setenv LESS '--tabs=4 --no-init --LONG-PROMPT --ignore-case'
