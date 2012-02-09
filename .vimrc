@@ -14,7 +14,7 @@ noremap gj j
 noremap gk k
 
 " set
-set ttimeoutlen=10
+"set ttimeoutlen=10
 set tabstop=4
 set tabpagemax=100
 set modelines=5
