@@ -21,9 +21,10 @@ set modelines=5
 set nocompatible
 set diffopt=filler,icase,iwhite
 set noerrorbells
-set noexpandtab
+"set noexpandtab
+set expandtab
 set noinsertmode
-set visualbell
+"set visualbell
 set backspace=indent,start,eol
 set fileformats=unix,dos,mac
 set helplang=ja,en
@@ -84,7 +85,9 @@ set wildmode=list:longest,full
 
 " インデント
 set autoindent
-set shiftwidth=4
+"set shiftwidth=4
+set shiftwidth=2
+set softtabstop=2
 set cinoptions=:0g0
 set copyindent
 set smartindent
