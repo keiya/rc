@@ -17,7 +17,7 @@ noremap gk k
 "set ttimeoutlen=10
 set tabstop=4
 set tabpagemax=100
-set modelines=5
+"set modelines=5
 set nocompatible
 set diffopt=filler,icase,iwhite
 set noerrorbells
@@ -35,8 +35,9 @@ if exists('&ambiwidth')
 endif
 
 " 外観
+set background=dark
 set cmdheight=1
-set cursorline
+"set cursorline
 set eadirection=both
 set equalalways
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:-
@@ -49,7 +50,8 @@ set shortmess=at
 set showbreak=>>
 set showcmd
 set showmode
-set statusline=%n:%<\ %f%a\ %m%r%h%w%y[%{&fenc!=''?&fenc:&enc}][%{&ff}]%=pos:%l,%c%V\ %obytes\ 0x%06.6B\ %03.3p%%
+"set statusline=%n:%<\ %f%a\ %m%r%h%w%y[%{&fenc!=''?&fenc:&enc}][%{&ff}]%=(%l,%c%V)\ %obytes\ 0x%06.6B\ %03.3p%%
+set statusline=%n:%<\ %f%a\ %m%r%h%w%y[%{&fenc!=''?&fenc:&enc}][%{&ff}]%=(%l,%c%V)\ %obytes\ %03.3p%%
 set notitle
 set nowrap
 " set display=uhex
@@ -87,7 +89,7 @@ set wildmode=list:longest,full
 set autoindent
 "set shiftwidth=4
 set shiftwidth=2
-set softtabstop=2
+set softtabstop=4
 set cinoptions=:0g0
 set copyindent
 set smartindent
@@ -161,51 +163,60 @@ nmap <C-L> :tabnext<CR>
 
 
 " Fold関係
-set foldlevel=1
-set foldnestmax=2
-set foldmethod=syntax
-set foldcolumn=3
+"set foldlevel=1
+"set foldnestmax=2
+"set foldmethod=syntax
+"set foldcolumn=3
 
 
 " Color関係
-highlight Comment ctermfg=5
-highlight Pmenu ctermbg=4
-highlight PmenuSel ctermbg=1
-highlight PMenuSbar ctermbg=4
-highlight Folded ctermbg=darkgray ctermfg=white
-highlight FoldColumn ctermbg=0
-highlight StatusLineNC ctermfg=darkgray ctermbg=gray
-highlight NonText ctermfg=black
-highlight SpecialKey ctermfg=darkgray
-highlight CursorLine NONE cterm=underline
-highlight ZenkakuSpace cterm=underline ctermbg=white ctermfg=blue
-autocmd vimrc VimEnter,WinEnter * match ZenkakuSpace /　/
+"highlight Comment ctermfg=blue
+"highlight Pmenu ctermbg=4
+"highlight PmenuSel ctermbg=1
+"highlight PMenuSbar ctermbg=4
+"highlight Folded ctermbg=darkgray ctermfg=white
+""highlight FoldColumn ctermbg=0
+"highlight StatusLineNC ctermfg=darkgray ctermbg=gray
+""highlight NonText ctermfg=black
+"highlight SpecialKey ctermfg=darkgray
+"highlight CursorLine NONE cterm=underline
+"highlight ZenkakuSpace cterm=underline ctermbg=white ctermfg=blue
+""hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+"highlight TabLine ctermfg=darkgray ctermbg=gray
+"highlight TabLineSel ctermfg=white ctermbg=black
+"highlight Search cterm=NONE ctermfg=black ctermbg=yellow
+"highlight CursorLineNr ctermfg=cyan
+"highlight WildMenu ctermbg=cyan
+colorscheme molokai
+"autocmd vimrc VimEnter,WinEnter * match ZenkakuSpace /　/
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " xterm-256color関係
-let s:colourcube_values = [ 0x00, 0x5F, 0x87, 0xAF, 0xD7, 0xFF ]
-let s:base16_values = 	[ [ 0x00, 0x00, 0x00 ]
-\			, [ 0xCD, 0x00, 0x00 ]
-\			, [ 0x00, 0xCD, 0x00 ]
-\			, [ 0xCD, 0xCD, 0x00 ]
-\			, [ 0x00, 0x00, 0xEE ]
-\			, [ 0xCD, 0x00, 0xCD ]
-\			, [ 0x00, 0xCD, 0xCD ]
-\			, [ 0xE5, 0xE5, 0xE5 ]
-\			, [ 0x7F, 0x7F, 0x7F ]
-\			, [ 0xFF, 0x00, 0x00 ]
-\			, [ 0x00, 0xFF, 0x00 ]
-\			, [ 0xFF, 0xFF, 0x00 ]
-\			, [ 0x5C, 0x5C, 0xFF ]
-\			, [ 0xFF, 0x00, 0xFF ]
-\			, [ 0x00, 0xFF, 0xFF ]
-\			, [ 0xFF, 0xFF, 0xFF ] ]
+"let s:colourcube_values = [ 0x00, 0x5F, 0x87, 0xAF, 0xD7, 0xFF ]
+"let s:base16_values = 	[ [ 0x00, 0x00, 0x00 ]
+"\			, [ 0xCD, 0x00, 0x00 ]
+"\			, [ 0x00, 0xCD, 0x00 ]
+"\			, [ 0xCD, 0xCD, 0x00 ]
+"\			, [ 0x00, 0x00, 0xEE ]
+"\			, [ 0xCD, 0x00, 0xCD ]
+"\			, [ 0x00, 0xCD, 0xCD ]
+"\			, [ 0xE5, 0xE5, 0xE5 ]
+"\			, [ 0x7F, 0x7F, 0x7F ]
+"\			, [ 0xFF, 0x00, 0x00 ]
+"\			, [ 0x00, 0xFF, 0x00 ]
+"\			, [ 0xFF, 0xFF, 0x00 ]
+"\			, [ 0x5C, 0x5C, 0xFF ]
+"\			, [ 0xFF, 0x00, 0xFF ]
+"\			, [ 0x00, 0xFF, 0xFF ]
+"\			, [ 0xFF, 0xFF, 0xFF ] ]
 
 " errorformat関係
-if has( "autocmd" )
-	autocmd vimrc filetype prolog set errorformat^=ERROR:\ %f:%l:%c:\ %m
-endif
-set errorformat+=%D%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ に入ります
-set errorformat+=%X%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ から出ます
+"if has( "autocmd" )
+"	autocmd vimrc filetype prolog set errorformat^=ERROR:\ %f:%l:%c:\ %m
+"endif
+"set errorformat+=%D%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ に入ります
+"set errorformat+=%X%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ から出ます
 
 " いろいろ
 "if has( "autocmd" )
@@ -247,21 +258,21 @@ let sh_minlines = 500
 " cpp
 "autocmd BufNewFile *.cpp 0r $HOME/repos/rc/template.cpp
 " php
-let php_sql_query=1
-let php_htmlInStrings=1
+"let php_sql_query=1
+"let php_htmlInStrings=1
 
-let g:neocomplcache_enable_at_startup = 1
-function InsertTabWrapper()
-    if pumvisible()
-        return "\<c-n>"
-    endif
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-        return "\<tab>"
-    elseif exists('&omnifunc') && &omnifunc == ''
-        return "\<c-n>"
-    else
-        return "\<c-x>\<c-o>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+"let g:neocomplcache_enable_at_startup = 1
+"function InsertTabWrapper()
+"    if pumvisible()
+"        return "\<c-n>"
+"    endif
+"    let col = col('.') - 1
+"    if !col || getline('.')[col - 1] !~ '\k\|<\|/'
+"        return "\<tab>"
+"    elseif exists('&omnifunc') && &omnifunc == ''
+"        return "\<c-n>"
+"    else
+"        return "\<c-x>\<c-o>"
+"    endif
+"endfunction
+"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
