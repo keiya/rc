@@ -261,18 +261,4 @@ let sh_minlines = 500
 "let php_sql_query=1
 "let php_htmlInStrings=1
 
-"let g:neocomplcache_enable_at_startup = 1
-"function InsertTabWrapper()
-"    if pumvisible()
-"        return "\<c-n>"
-"    endif
-"    let col = col('.') - 1
-"    if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-"        return "\<tab>"
-"    elseif exists('&omnifunc') && &omnifunc == ''
-"        return "\<c-n>"
-"    else
-"        return "\<c-x>\<c-o>"
-"    endif
-"endfunction
-"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
