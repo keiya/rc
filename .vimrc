@@ -8,7 +8,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neocomplcache'
 
 " color scheme
@@ -43,11 +43,13 @@ let g:neocomplcache_enable_at_startup = 1
 
 " NERDTree
 " https://github.com/scrooloose/nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ==== my favorite configure ====
+" ---- indentation ----
+set tabstop=4
 " ---- colorscheme ----
 set t_Co=256
 colorscheme molokai
@@ -57,7 +59,7 @@ syntax on
 set number
 set laststatus=2
 set list
-set listchars=tab:>\ ,trail:_,precedes:<,extends:>
+set listchars=tab:\ \ ,trail:_,precedes:<,extends:>
 set showcmd
 set splitbelow
 set splitright
@@ -78,4 +80,15 @@ set smartcase
 set wrapscan
 
 " ---- file settings ----
+" swap file to the ramdisk
+if has("win32")
 set directory=/tmp
+endif
+if has("unix")
+  if system('uname')=~'Darwin'
+    set directory=/Volumes/ramdisk
+  else
+    set directory=/dev/shm
+  endif
+endif
+
