@@ -50,6 +50,7 @@ let g:neocomplcache_enable_at_startup = 1
 " ==== my favorite configure ====
 " ---- indentation ----
 set tabstop=4
+set expandtab
 " ---- colorscheme ----
 set t_Co=256
 colorscheme molokai
