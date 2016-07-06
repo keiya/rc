@@ -8,8 +8,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/neocomplcache'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+
+let g:airline#extensions#tabline#enabled = 1
+
+
 
 " color scheme
 Bundle 'tomasr/molokai'
@@ -18,42 +22,26 @@ Bundle 'tomasr/molokai'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" ---- Plugin specific configure ----
-" Neocomplecache
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-let g:neocomplcache_enable_at_startup = 1 
-
 " NERDTree
 " https://github.com/scrooloose/nerdtree
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
 
 " ==== my favorite configure ====
+" ---- completion ----
+set omnifunc=syntaxcomplete#Complete
 " ---- indentation ----
 set tabstop=4
 set expandtab
 " ---- colorscheme ----
 set t_Co=256
-colorscheme molokai
+
+try
+	colorscheme molokai
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
 
 " ---- appearance ----
 syntax on
