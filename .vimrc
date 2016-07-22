@@ -81,3 +81,7 @@ if has("unix")
   endif
 endif
 
+" encoding
+set fileencodings=utf-8
+set encoding=utf-8
+set fileformats=unix,dos
