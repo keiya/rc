@@ -75,7 +75,8 @@ set directory=/tmp
 endif
 if has("unix")
   if system('uname')=~'Darwin'
-    set directory=/Volumes/ramdisk
+"    set directory=/Volumes/ramdisk
+    set directory=/tmp
   else
     set directory=/dev/shm
   endif
