@@ -15,9 +15,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 
-" color scheme
-Bundle 'tomasr/molokai'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,10 +35,7 @@ set expandtab
 " ---- colorscheme ----
 set t_Co=256
 
-try
-	colorscheme molokai
-catch /^Vim\%((\a\+)\)\=:E185/
-endtry
+colorscheme slate
 
 " ---- appearance ----
 syntax on
