@@ -7,5 +7,6 @@ ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
 mkdir -p $HOME/.ssh/
 chmod 700 .ssh
+touch $HOME/.ssh/ssh_config
 ln -s $HOME/repos/rc/ssh_config $HOME/.ssh/config
 vim +PluginInstall +qall

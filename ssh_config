@@ -1,3 +1,5 @@
+Include ~/.ssh/ssh_config
+
 LogLevel VERBOSE
 
 Compression yes
