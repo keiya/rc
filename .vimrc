@@ -55,6 +55,7 @@ set wildmenu
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 nmap <C-H> :tabprev<CR>
 nmap <C-L> :tabnext<CR>
+set backspace=indent,eol,start
 
 " ---- search ----
 set hlsearch
