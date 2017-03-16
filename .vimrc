@@ -1,23 +1,20 @@
-" ==== Vundle ====
 set nocompatible
-filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Initialize plugin system
+call plug#end()
+
 
 let g:airline#extensions#tabline#enabled = 1
 
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " NERDTree
 " https://github.com/scrooloose/nerdtree
@@ -32,6 +29,7 @@ set omnifunc=syntaxcomplete#Complete
 " ---- indentation ----
 set tabstop=4
 set expandtab
+set breakindent
 " ---- colorscheme ----
 set t_Co=256
 
