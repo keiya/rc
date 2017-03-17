@@ -1,0 +1,11 @@
+[user]
+	email = keiya_21@yahoo.co.jp
+	name = keiya
+[core]
+	pager = less -cm
+	compression = 1
+
+[color]
+    ui = true
+[push]
+	default = simple
