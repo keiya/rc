@@ -1,17 +1,19 @@
 [user]
-	email = keiya_21@yahoo.co.jp
-	name = keiya
+    email = keiya_21@yahoo.co.jp
+    name = keiya
 [core]
-	pager = less -cm
-	compression = 1
-
+    pager = less -cm
+    compression = 9
+    looseCompression = 9
 [color]
     ui = true
+[pack]
+    compression = 9
 [push]
-	default = simple
+    default = simple
 [pull]
     rebase = true
-	ff = only
-	ff = only
+    ff = only
+    ff = only
 [merge]
-	ff = false
+    ff = false
