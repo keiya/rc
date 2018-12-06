@@ -7,8 +7,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'Shougo/unite.vim'
-
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -21,23 +19,14 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-surround'
 
-Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-endwise'
 
 " Initialize plugin system
 call plug#end()
 
-
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
-
-nnoremap <leader>f :<C-u>Unite file<CR>
-nnoremap <leader>r :<C-u>Unite file_rec<CR>
-nnoremap <leader>b :<C-u>Unite buffer<CR>
-nnoremap <leader>g :<C-u>Unite grep<CR>
-nnoremap <leader>a :<C-u>UniteBookmarkAdd<CR>
-nnoremap <leader>m :<C-u>Unite bookmark<CR>
-
-
 
 " NERDTree
 " https://github.com/scrooloose/nerdtree
@@ -46,13 +35,21 @@ nnoremap <leader>m :<C-u>Unite bookmark<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 
+" fzf
+nmap ; :Buffers<CR>
+nmap t :Files<CR>
+nmap r :Ag<CR>
+
 " ==== my favorite configure ====
 " ---- completion ----
 set omnifunc=syntaxcomplete#Complete
 " ---- indentation ----
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set breakindent
+set smarttab
+set smartindent
 " ---- colorscheme ----
 set t_Co=256
 

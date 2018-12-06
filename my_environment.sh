@@ -14,6 +14,7 @@ ln -s $HOME/repos/rc/.bashrc $HOME/
 ln -s $HOME/repos/rc/.tmux.conf $HOME/
 ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
+ln -s $HOME/repos/rc/.vimrc $HOME/.config/nvim/init.vim
 ln -s $HOME/repos/rc/.gitconfig $HOME/
 mkdir -p $HOME/.ssh/
 chmod 700 .ssh
