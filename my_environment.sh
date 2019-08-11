@@ -16,6 +16,7 @@ ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/.config/nvim/init.vim
 ln -s $HOME/repos/rc/.gitconfig $HOME/
+ln -s $HOME/repos/rc/.editorconfig $HOME/
 mkdir -p $HOME/.ssh/
 chmod 700 .ssh
 touch $HOME/.ssh/ssh_config
