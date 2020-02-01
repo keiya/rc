@@ -10,7 +10,11 @@ mkdir -p $HOME/.config/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-ln -s $HOME/repos/rc/.bashrc $HOME/
+# zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+ln -s $HOME/repos/rc/.zshrc $HOME/
+zsh $HOME/repos/rc/setup-prezto.sh
+
 ln -s $HOME/repos/rc/.tmux.conf $HOME/
 ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
