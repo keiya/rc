@@ -2,6 +2,8 @@
 cd $HOME
 git clone https://github.com/keiya/rc.git $HOME/repos/rc
 
+ln -s $HOME/repos/rc/.gitconfig $HOME/
+
 # vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -19,7 +21,6 @@ ln -s $HOME/repos/rc/.tmux.conf $HOME/
 ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/.config/nvim/init.vim
-ln -s $HOME/repos/rc/.gitconfig $HOME/
 ln -s $HOME/repos/rc/.editorconfig $HOME/
 mkdir -p $HOME/.ssh/
 chmod 700 .ssh
