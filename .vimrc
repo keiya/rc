@@ -90,6 +90,8 @@ if has("unix")
   if system('uname')=~'Darwin'
 "    set directory=/Volumes/ramdisk
     set directory=/tmp
+  elseif system('uname')=~'FreeBSD'
+    set directory=/tmp
   else
     set directory=/dev/shm
   endif
