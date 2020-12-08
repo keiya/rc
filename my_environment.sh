@@ -22,7 +22,7 @@ ln -s $HOME/repos/rc/.toprc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/
 ln -s $HOME/repos/rc/.vimrc $HOME/.config/nvim/init.vim
 ln -s $HOME/repos/rc/.editorconfig $HOME/
-mkdir -p $HOME/.ssh/
+mkdir -p $HOME/.ssh/master
 chmod 700 .ssh
 touch $HOME/.ssh/ssh_config
 ln -s $HOME/repos/rc/ssh_config $HOME/.ssh/config
